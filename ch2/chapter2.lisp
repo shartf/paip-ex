@@ -121,3 +121,13 @@
       (+ x y))
     (* x x)))
  6)
+
+(setf a 'global-a)
+(defvar *b* 'global-b)
+
+(defun fn () *b*)
+(defun fna () a)
+
+(let ((a 'local-a)
+      (*b* 'local-b))
+  (list a *b* (fn) (fna) (symbol-value 'a) (symbol-value '*b*)))
