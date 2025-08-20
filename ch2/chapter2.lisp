@@ -131,3 +131,9 @@
 (let ((a 'local-a)
       (*b* 'local-b))
   (list a *b* (fn) (fna) (symbol-value 'a) (symbol-value '*b*)))
+
+;;Exercise 3.9 [m] Write a version of length using the function reduce.
+(defun reduce-len (lst)
+  "Returns length of a list"
+  (reduce #'+ (mapcar #'(lambda (x) 1) lst)))
+
